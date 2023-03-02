@@ -1,5 +1,4 @@
 const fsPromise = require("fs").promises;
-const crypto = require('crypto');
 const glob = require('glob')
 
 const COM_RULE_DIR = "../Consent-O-Matic/rules";
@@ -67,14 +66,12 @@ function convertRule(comRule) {
         }
     });
 
-
     await fsPromise.writeFile(
         FILE_OUT,
         JSON.stringify({
             data: success,
         }, null, 2)
     );
-
 
     console.info("Done!", { successCount: success.length, failureCount: failure.length });
 })();
